@@ -3,7 +3,10 @@ Documentation    Arquivo principal do projeto de automação
 
 Library    Browser
 
-Resource    actions/Login.robot
+Resource    actions/LoginActions.robot
+
+Resource    pages/LoginPage.robot
+Resource    pages/DashPage.robot
 
 *Keywords*
 Start Session
