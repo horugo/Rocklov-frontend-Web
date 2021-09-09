@@ -18,10 +18,20 @@ Add new equipo
     Equipo Should Be Visible    ${equipo}[name]
 
 Duplicated Equipo
-    [Tags]      dup_equipo
+    [Tags]    dup_equipo
+
+    ${email}    Set Variable    eddie@vanhalen.com
+    ${pass}     Set Variable    pwd123
 
     #dado que o equipamento fender foi cadastrado na minha conta
     ${equipo}              Get Equipo           fender
-    ${token}               Get Token Service    eddie@vanhalen.com    pwd123
+    ${token}               Get Token Service    ${email}    ${pass}
     POST Equipo Service    ${equipo}            ${token}
 
+    #Quando faço o cadastro desse equipo
+    Login With            ${email}     ${pass}
+    Go To Equipo Form     
+    Submit Equipo Form    ${equipo}
+
+    #Então devo ver a mensagem de alerta "Anúncio já existe :/"
+    Alert Text Should Be        Anúncio já existe :/        

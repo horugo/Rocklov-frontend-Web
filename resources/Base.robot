@@ -6,6 +6,7 @@ Library    libs/mongo.py
 
 Resource    Helpers.robot
 Resource    Services.robot
+Resource    actions/Components.robot
 Resource    actions/LoginActions.robot
 Resource    actions/EquipoActions.robot
 
