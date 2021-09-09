@@ -7,8 +7,8 @@ Go To Equipo Form
     #  checkpoint
     Wait For Elements State    id=equipoForm         visible    5
 
-Submit Equipo Form
-    [Arguments]    ${equipo}
+Fill Equipo Form
+    [Arguments]     ${equipo}
 
     ${thumb}    Set Variable    ${EXECDIR}/resources/fixtures/thumbnails/${equipo}[thumbnail]
 
@@ -20,6 +20,7 @@ Submit Equipo Form
     Select Options By    id=category    value               ${equipo}[category]
     Fill Text            id=price       ${equipo}[price]
 
+Submit Equipo Form
     Click               text=Cadastrar
 
 Equipo Should Be Visible
@@ -29,3 +30,11 @@ Equipo Should Be Visible
     ...     css=tr >> text=${equipo_name}
     ...     visible
     ...     5
+
+Alert Form Should Be
+    [Arguments]         ${expect_message}
+
+    Wait For Elements State
+    ...         css=.alert-form >> text=${expect_message}
+    ...         visible
+    ...         5

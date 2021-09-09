@@ -14,7 +14,8 @@ Add new equipo
 
     Login With                  eddie@vanhalen.com    pwd123
     Go To Equipo Form           
-    Submit Equipo Form          ${equipo}
+    Fill Equipo Form            ${equipo}             
+    Submit Equipo Form          
     Equipo Should Be Visible    ${equipo}[name]
 
 Duplicated Equipo
@@ -31,7 +32,20 @@ Duplicated Equipo
     #Quando faço o cadastro desse equipo
     Login With            ${email}     ${pass}
     Go To Equipo Form     
-    Submit Equipo Form    ${equipo}
+    Fill Equipo Form      ${equipo}    
+    Submit Equipo Form    
 
     #Então devo ver a mensagem de alerta "Anúncio já existe :/"
-    Alert Text Should Be        Anúncio já existe :/        
+    Alert Text Should Be    Anúncio já existe :/    
+
+Required Fields
+    [Tags]      required
+
+    Login With            eddie@vanhalen.com    pwd123
+    Go To Equipo Form
+    Submit Equipo Form
+
+    Alert Form Should Be    Adicione uma foto no seu anúncio.
+    Alert Form Should Be    Informe a descrição do anúncio.
+    Alert Form Should Be    Selecione uma categoria.
+    Alert Form Should Be    Informe o valor da diária.
