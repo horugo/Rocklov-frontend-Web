@@ -3,14 +3,15 @@ Documentation    Login Tests
 
 Resource    ${EXECDIR}/resources/Base.robot
 
-Test Setup       Start Session
-Test Teardown    Finish Session
+Suite Setup      Start Session
+Test Teardown    Finish Test
 
 *Test Cases*
 User Login
 
-    Login With                  rogers@shield.com    pwd123
+    Login With                  rogers@shield.com             pwd123
     User Should Be Logged In
+    [Teardown]                  Take Screenshot And Logout
 
 Incorret Password
 

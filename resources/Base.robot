@@ -5,14 +5,14 @@ Library    Browser
 
 Resource    actions/LoginActions.robot
 
-Resource    pages/LoginPage.robot
-Resource    pages/DashPage.robot
-
 *Keywords*
 Start Session
     New Browser    firefox         False    #slowMo=00:00:01
     New Page       https://rocklov-victor-web.herokuapp.com/
 
-Finish Session
+Finish Test
     Take Screenshot
-
+    
+Take Screenshot And Logout
+    Take Screenshot
+    Do Logout
