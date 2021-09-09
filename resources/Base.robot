@@ -5,6 +5,7 @@ Library    Browser
 Library    libs/mongo.py
 
 Resource    Helpers.robot
+Resource    Services.robot
 Resource    actions/LoginActions.robot
 Resource    actions/EquipoActions.robot
 
