@@ -9,11 +9,12 @@ Test Teardown    Finish Test
 *Test Cases*
 Add new equipo
 
-    ${equipo}    Get Equipo    violao
+    ${equipo}        Get Equipo         violao
+    Remove Equipo    ${equipo}[name]
 
     Login With            eddie@vanhalen.com    pwd123
     Go To Equipo Form     
     Submit Equipo Form    ${equipo}
     # Should Be Equipo Is Available
 
-    Sleep    10
+    Sleep       5

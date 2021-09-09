@@ -20,3 +20,4 @@ Submit Equipo Form
     Select Options By    id=category    value               ${equipo}[category]
     Fill Text            id=price       ${equipo}[price]
 
+    Click               text=Cadastrar
