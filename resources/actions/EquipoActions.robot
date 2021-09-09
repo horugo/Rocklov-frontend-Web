@@ -21,3 +21,11 @@ Submit Equipo Form
     Fill Text            id=price       ${equipo}[price]
 
     Click               text=Cadastrar
+
+Equipo Should Be Visible
+    [Arguments]     ${equipo_name}
+
+    Wait For Elements State
+    ...     css=tr >> text=${equipo_name}
+    ...     visible
+    ...     5

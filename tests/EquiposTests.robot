@@ -12,9 +12,8 @@ Add new equipo
     ${equipo}        Get Equipo         violao
     Remove Equipo    ${equipo}[name]
 
-    Login With            eddie@vanhalen.com    pwd123
-    Go To Equipo Form     
-    Submit Equipo Form    ${equipo}
-    # Should Be Equipo Is Available
+    Login With                  eddie@vanhalen.com    pwd123
+    Go To Equipo Form           
+    Submit Equipo Form          ${equipo}
+    Equipo Should Be Visible    ${equipo}[name]
 
-    Sleep       5
