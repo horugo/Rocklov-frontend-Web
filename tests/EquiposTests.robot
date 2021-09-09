@@ -11,7 +11,9 @@ Add new equipo
 
     ${equipo}    Get Equipo    violao
 
-    Login With           eddie@vanhalen.com    pwd123
-    Go To Equipo Form    
-    # Submit Equipo Form
+    Login With            eddie@vanhalen.com    pwd123
+    Go To Equipo Form     
+    Submit Equipo Form    ${equipo}
     # Should Be Equipo Is Available
+
+    Sleep    10
