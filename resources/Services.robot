@@ -5,7 +5,7 @@ Library     RequestsLibrary
 Library     OperatingSystem
 
 *Variables*
-${base_url}     https://rocklov-victor-api.herokuapp.com
+${base_url}     https://rocklov-victor2-api.herokuapp.com
 
 *Keywords*
 Get Token Service

@@ -2,9 +2,9 @@ from pymongo import MongoClient
 import bson
 import ssl
 
-client = MongoClient('mongodb+srv://qaninja:academy@cluster0.nlzkf.mongodb.net/Rocklov?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://qaninja:academy@cluster0.nlzkf.mongodb.net/Rocklov2?retryWrites=true&w=majority', ssl_cert_reqs=ssl.CERT_NONE)
 
-db = client['rocklov']
+db = client['rocklov2']
 
 def get_mongo_id():
     return bson.objectid.ObjectId()
