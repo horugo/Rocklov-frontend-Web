@@ -1,0 +1,14 @@
+{
+    "violao":{
+        "thumbnail": "violao.png",
+        "name": "Violão de 12 cordas",
+        "category": "Cordas",
+        "price": 350
+    },
+    "fender":{
+        "thumbnail": "guitarra-strato.png",
+        "name": "Fender Strato",
+        "category": "Cordas",
+        "price": 150
+    }
+}
