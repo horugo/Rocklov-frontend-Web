@@ -39,7 +39,6 @@ Duplicated Equipo
     Alert Text Should Be    Anúncio já existe :/    
 
 Required Fields
-    #teste 25/09/21
     [Tags]      required
 
     Login With            eddie@vanhalen.com    pwd123
