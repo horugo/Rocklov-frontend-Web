@@ -3,7 +3,7 @@ Documentation    Equipos Tests
 
 Resource    ${EXECDIR}/resources/Base.robot
 
-Suite Setup      Start Session
+Suite Setup      Login Session    eddie@vanhalen.com    pwd123
 Test Teardown    Finish Test
 
 *Test Cases*
@@ -12,9 +12,8 @@ Add new equipo
     ${equipo}        Get Equipo         violao
     Remove Equipo    ${equipo}[name]
 
-    Login With                  eddie@vanhalen.com    pwd123
     Go To Equipo Form           
-    Fill Equipo Form            ${equipo}             
+    Fill Equipo Form            ${equipo}          
     Submit Equipo Form          
     Equipo Should Be Visible    ${equipo}[name]
 
@@ -30,7 +29,6 @@ Duplicated Equipo
     POST Equipo Service    ${equipo}            ${token}
 
     #Quando faço o cadastro desse equipo
-    Login With            ${email}     ${pass}
     Go To Equipo Form     
     Fill Equipo Form      ${equipo}    
     Submit Equipo Form    
@@ -38,10 +36,11 @@ Duplicated Equipo
     #Então devo ver a mensagem de alerta "Anúncio já existe :/"
     Alert Text Should Be    Anúncio já existe :/    
 
-Required Fields
-    [Tags]      required
+    [Teardown]    Take Screenshot And Go Back
 
-    Login With            eddie@vanhalen.com    pwd123
+Required Fields
+    [Tags]    required
+
     Go To Equipo Form
     Submit Equipo Form
 
