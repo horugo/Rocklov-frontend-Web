@@ -13,3 +13,9 @@ Get Equipo
     ${select_equipo}    Set Variable    ${json}[${equipo}]
 
     [return]    ${select_equipo}
+
+Get Token From LS
+
+    ${token}    LocalStorage Get Item    user_token
+
+    [return]    ${token}

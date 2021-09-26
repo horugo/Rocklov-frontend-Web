@@ -13,7 +13,7 @@ Resource    actions/EquipoActions.robot
 
 *Keywords*
 Start Session
-    New Browser    firefox       False    #slowMo=00:00:01
+    New Browser    firefox       False    slowMo=00:00:01
     New Page       https://rocklov-victor2-web.herokuapp.com
 
 Finish Test
