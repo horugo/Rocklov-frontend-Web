@@ -1,26 +1,35 @@
 * Settings *
-Documentation       Aqui vamos consumir a API da Rocklov com um beneficio
+Documentation    Aqui vamos consumir a API da Rocklov com um beneficio
 
-Library     RequestsLibrary
-Library     OperatingSystem
+Library    RequestsLibrary
+Library    OperatingSystem
 
 *Variables*
-${base_url}     https://rocklov-victor2-api.herokuapp.com
+${base_url}    https://rocklov-victor2-api.herokuapp.com
 
 *Keywords*
+POST User Service
+    [Arguments]    ${payload}
+
+    ${response}    POST
+    ...            ${base_url}/signup
+    ...            json=${payload}
+
+    [return]    ${response}
+
 Get Token Service
-    [Arguments]     ${email}      ${password}
+    [Arguments]    ${email}    ${password}
 
-    ${payload}      Create Dictionary       email=${email}    password=${password}
+    ${payload}    Create Dictionary    email=${email}    password=${password}
 
-    ${response}     POST
-                    ...         ${base_url}/sessions
-                    ...         json=${payload}
+    ${response}    POST
+    ...            ${base_url}/sessions
+    ...            json=${payload}
 
-    [return]        ${response.json()}[user_token]
+    [return]    ${response.json()}[user_token]
 
 POST Equipo Service
-    [Arguments]     ${equipo}       ${token}
+    [Arguments]    ${equipo}    ${token}
 
     &{headers}    Create Dictionary    user_token=${token}
 
@@ -28,7 +37,7 @@ POST Equipo Service
     &{thumbnail}    Create Dictionary    thumbnail=${bin_image}
 
     ${response}    POST
-    ...            ${base_url}/equipos        
+    ...            ${base_url}/equipos    
     ...            data=${equipo}
     ...            headers=${headers}
     ...            files=${thumbnail}

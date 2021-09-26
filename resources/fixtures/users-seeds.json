@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Steve Rogers",
+        "email": "rogers@shield.com",
+        "password": "pwd123"
+    },
+    {
+        "name": "Eddie@vanhalen.com",
+        "email": "eddie@vanhalen.com",
+        "password": "pwd123"
+    },
+    {
+        "name": "Jimmi hendrix",
+        "email": "jimmi.hendrix@hotmail.com",
+        "password": "pwd123"
+    }
+]
