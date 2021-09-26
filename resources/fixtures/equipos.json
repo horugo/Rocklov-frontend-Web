@@ -10,5 +10,17 @@
         "name": "Fender Strato",
         "category": "Cordas",
         "price": 150
+    },
+    "saxofone":{
+        "thumbnail": "saxofone.png",
+        "name": "Saxofone muito bonito",
+        "category": "Sopros",
+        "price": 500
+    },
+    "conga":{
+        "thumbnail": "congas.png",
+        "name": "Conga muito bonita",
+        "category": "Outros",
+        "price": 100
     }
 }

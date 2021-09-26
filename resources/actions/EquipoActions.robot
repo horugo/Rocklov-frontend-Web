@@ -8,7 +8,7 @@ Go To Equipo Form
     Wait For Elements State    id=equipoForm         visible    5
 
 Fill Equipo Form
-    [Arguments]     ${equipo}
+    [Arguments]    ${equipo}
 
     ${thumb}    Set Variable    ${EXECDIR}/resources/fixtures/thumbnails/${equipo}[thumbnail]
 
@@ -21,23 +21,31 @@ Fill Equipo Form
     Fill Text            id=price       ${equipo}[price]
 
 Submit Equipo Form
-    Click               text=Cadastrar
+    Click    text=Cadastrar
 
 Equipo Should Be Visible
-    [Arguments]     ${equipo_name}
+    [Arguments]    ${equipo_name}
 
     Wait For Elements State
-    ...     css=tr >> text=${equipo_name}
-    ...     visible
-    ...     5
+    ...                        css=tr >> text=${equipo_name}
+    ...                        visible
+    ...                        5
+
+Equipo Not Should Be Visible
+    [Arguments]    ${equipo_name}
+
+    Wait For Elements State
+    ...                        css=tr >> text=${equipo_name}
+    ...                        detached
+    ...                        5
 
 Alert Form Should Be
-    [Arguments]         ${expect_message}
+    [Arguments]    ${expect_message}
 
     Wait For Elements State
-    ...         css=.alert-form >> text=${expect_message}
-    ...         visible
-    ...         5
+    ...                        css=.alert-form >> text=${expect_message}
+    ...                        visible
+    ...                        5
 
 Get Text For Required Alerts
     [Arguments]    ${position}
@@ -45,3 +53,14 @@ Get Text For Required Alerts
     ${result}    Get Text    xpath=//span[@class="alert-form"][${position}]
 
     [return]    ${result}
+
+Request Removal
+    [Arguments]    ${equipo_name}
+
+    Click    xpath=//td[text()="${equipo_name}"]/..//i[contains(@class, "delete")]
+
+Confirm Removal
+    Click    xpath=//div[@class="react-confirm-alert"]//button[text()="Sim"]
+
+Cancel Removal
+    Click    xpath=//div[@class="react-confirm-alert"]//button[text()="Não"]
