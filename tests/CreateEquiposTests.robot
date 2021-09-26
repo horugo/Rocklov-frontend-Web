@@ -3,12 +3,8 @@ Documentation    Equipos Tests
 
 Resource    ${EXECDIR}/resources/Base.robot
 
-Suite Setup      Login Session    ${EMAIL}    ${PASS}
+Suite Setup      Login Session    eddie@vanhalen.com    pwd123
 Test Teardown    Finish Test
-
-*Variables*
-${EMAIL}    eddie@vanhalen.com
-${PASS}     pwd123
 
 *Test Cases*
 Add new equipo
@@ -26,8 +22,8 @@ Duplicated Equipo
 
     #dado que o equipamento fender foi cadastrado na minha conta
     ${equipo}              Get Equipo           fender
-    ${token}               Get Token Service    ${EMAIL}    ${PASS}
-    POST Equipo Service    ${equipo}            ${token}
+    Set Token From LS
+    POST Equipo Service    ${equipo}            ${TOKEN}
 
     #Quando faço o cadastro desse equipo
     Go To Equipo Form     

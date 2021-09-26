@@ -19,3 +19,15 @@ Get Token From LS
     ${token}    LocalStorage Get Item    user_token
 
     [return]    ${token}
+
+Set Token From LS
+
+    ${TOKEN}    LocalStorage Get Item    user_token
+
+    Set Test Variable    ${TOKEN}
+
+Set Token Suite From LS
+
+    ${TOKEN}    LocalStorage Get Item    user_token
+
+    Set Suite Variable    ${TOKEN}
