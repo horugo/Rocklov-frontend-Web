@@ -2,6 +2,7 @@
 Documentation    Arquivo principal do projeto de automação
 
 Library    Browser
+Library    Collections
 Library    libs/mongo.py
 
 Resource    Helpers.robot

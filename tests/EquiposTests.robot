@@ -41,10 +41,30 @@ Duplicated Equipo
 Required Fields
     [Tags]    required
 
+    @{expected_alerts}    Create List                          
+    ...                   Adicione uma foto no seu anúncio.
+    ...                   Informe a descrição do anúncio.
+    ...                   Selecione uma categoria.
+    ...                   Informe o valor da diária.
+
+    @{got_alerts}    Create List
+
     Go To Equipo Form
     Submit Equipo Form
 
-    Alert Form Should Be    Adicione uma foto no seu anúncio.
-    Alert Form Should Be    Informe a descrição do anúncio.
-    Alert Form Should Be    Selecione uma categoria.
-    Alert Form Should Be    Informe o valor da diária.
+    FOR               ${position}                     IN RANGE       1    5
+        ${text}           Get Text For Required Alerts    ${position}
+        Append To List    ${got_alerts}                   ${text}
+    END
+
+    Log    ${got_alerts}
+
+    Lists Should Be Equal    ${got_alerts}    ${expected_alerts}
+
+*Keywords*
+Get Text For Required Alerts
+    [Arguments]    ${position}
+
+    ${result}    Get Text    xpath=//span[@class="alert-form"][${position}]
+
+    [return]    ${result}
