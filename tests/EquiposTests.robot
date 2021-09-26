@@ -3,8 +3,12 @@ Documentation    Equipos Tests
 
 Resource    ${EXECDIR}/resources/Base.robot
 
-Suite Setup      Login Session    eddie@vanhalen.com    pwd123
+Suite Setup      Login Session    ${EMAIL}    ${PASS}
 Test Teardown    Finish Test
+
+*Variables*
+${EMAIL}        eddie@vanhalen.com
+${PASS}         pwd123
 
 *Test Cases*
 Add new equipo
@@ -20,12 +24,9 @@ Add new equipo
 Duplicated Equipo
     [Tags]    dup_equipo
 
-    ${email}    Set Variable    eddie@vanhalen.com
-    ${pass}     Set Variable    pwd123
-
     #dado que o equipamento fender foi cadastrado na minha conta
     ${equipo}              Get Equipo           fender
-    ${token}               Get Token Service    ${email}    ${pass}
+    ${token}               Get Token Service    ${EMAIL}    ${PASS}
     POST Equipo Service    ${equipo}            ${token}
 
     #Quando faço o cadastro desse equipo
@@ -60,11 +61,3 @@ Required Fields
     Log    ${got_alerts}
 
     Lists Should Be Equal    ${got_alerts}    ${expected_alerts}
-
-*Keywords*
-Get Text For Required Alerts
-    [Arguments]    ${position}
-
-    ${result}    Get Text    xpath=//span[@class="alert-form"][${position}]
-
-    [return]    ${result}

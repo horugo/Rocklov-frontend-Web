@@ -38,3 +38,10 @@ Alert Form Should Be
     ...         css=.alert-form >> text=${expect_message}
     ...         visible
     ...         5
+
+Get Text For Required Alerts
+    [Arguments]    ${position}
+
+    ${result}    Get Text    xpath=//span[@class="alert-form"][${position}]
+
+    [return]    ${result}
