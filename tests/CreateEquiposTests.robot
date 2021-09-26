@@ -40,7 +40,7 @@ Required Fields
     @{expected_alerts}    Create List                          
     ...                   Adicione uma foto no seu anúncio.
     ...                   Informe a descrição do anúncio.
-    ...                   Selecione uma categoria.
+    ...                   Escolha uma categoria.
     ...                   Informe o valor da diária.
 
     @{got_alerts}    Create List

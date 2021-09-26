@@ -13,8 +13,11 @@ Resource    actions/EquipoActions.robot
 
 *Keywords*
 Start Session
-    New Browser    firefox       False    slowMo=00:00:01
-    New Page       https://rocklov-victor2-web.herokuapp.com
+    New Browser          firefox        False    slowMo=00:00:01
+    New Page             about:blank
+    Set Viewport Size    1920           1080
+
+    Go To    https://rocklov-victor2-web.herokuapp.com
 
 Finish Test
     Take Screenshot
